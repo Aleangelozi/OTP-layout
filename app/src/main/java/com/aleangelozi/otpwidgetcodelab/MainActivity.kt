@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
-    private var myClipboard: ClipboardManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,28 +21,6 @@ class MainActivity : AppCompatActivity() {
         val e2: EditText =  findViewById(R.id.editText2)
         val e3: EditText =  findViewById(R.id.editText3)
         val e4: EditText =  findViewById(R.id.editText4)
-
-        myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager?
-
-
-
-        e1.text = myClipboard?.primaryClip?.getItemAt(0)?.text as Editable?
-
-
-
-        e2.setOnFocusChangeListener { view, b ->
-
-                e2.text.append('2')
-
-        }
-
-        e3.setOnFocusChangeListener { view, b ->
-            e3.text.append('3')
-        }
-
-        e4.setOnFocusChangeListener { view, b ->
-            e4.text.append('4')
-        }
 
         e1.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(
